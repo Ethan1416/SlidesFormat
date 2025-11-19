@@ -1,7 +1,7 @@
 
-  # Plant Care App
+  # Slides Formatting
 
-  This is a code bundle for Plant Care App. The original project is available at https://www.figma.com/design/S3T4q1VXcAnUuhQPVf9WjR/Plant-Care-App.
+  This is a code bundle for Slides Formatting. The original project is available at https://www.figma.com/design/S3T4q1VXcAnUuhQPVf9WjR/Slides-Formatting.
 
   ## Running the code
 

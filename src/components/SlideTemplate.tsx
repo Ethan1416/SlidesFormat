@@ -9,6 +9,14 @@ import { FlowDiagramLeftLayout } from "./layouts/FlowDiagramLeftLayout";
 import { FlowDiagramRightLayout } from "./layouts/FlowDiagramRightLayout";
 import { ComparisonTableLayout } from "./layouts/ComparisonTableLayout";
 import { ClinicalFocusLayout } from "./layouts/ClinicalFocusLayout";
+import { MultipleChoiceLayout } from "./layouts/MultipleChoiceLayout";
+import { MultipleChoiceAnswerLayout } from "./layouts/MultipleChoiceAnswerLayout";
+import { TitleSlideLayout } from "./layouts/TitleSlideLayout";
+import { ImportantNoticeLayout } from "./layouts/ImportantNoticeLayout";
+import { JourneyOverviewLayout } from "./layouts/JourneyOverviewLayout";
+import { DetailedRoadmapLayout } from "./layouts/DetailedRoadmapLayout";
+import { LearningObjectivesLayout } from "./layouts/LearningObjectivesLayout";
+import { ContentPriorityLayout } from "./layouts/ContentPriorityLayout";
 
 export interface ContentSection {
   title: string;
@@ -19,7 +27,7 @@ export interface ContentSection {
   borderColor: string;
 }
 
-export type LayoutType = "two-column" | "timeline" | "grid" | "split-category" | "three-card" | "flow-diagram-left" | "flow-diagram-right" | "comparison-table" | "clinical-focus";
+export type LayoutType = "two-column" | "timeline" | "grid" | "split-category" | "three-card" | "flow-diagram-left" | "flow-diagram-right" | "comparison-table" | "clinical-focus" | "multiple-choice" | "multiple-choice-answer" | "title-slide" | "important-notice" | "journey-overview" | "detailed-roadmap" | "learning-objectives" | "content-priority";
 
 export function SlideTemplate() {
   const title = "Memory Systems: Experience to Knowledge";
@@ -75,7 +83,15 @@ export function SlideTemplate() {
     { id: "flow-diagram-left" as LayoutType, name: "Flow Diagram Left Layout" },
     { id: "flow-diagram-right" as LayoutType, name: "Flow Diagram Right Layout" },
     { id: "comparison-table" as LayoutType, name: "Comparison Table Layout" },
-    { id: "clinical-focus" as LayoutType, name: "Clinical Focus Layout" }
+    { id: "clinical-focus" as LayoutType, name: "Clinical Focus Layout" },
+    { id: "multiple-choice" as LayoutType, name: "Multiple Choice Layout" },
+    { id: "multiple-choice-answer" as LayoutType, name: "Multiple Choice Answer Layout" },
+    { id: "title-slide" as LayoutType, name: "Title Slide Layout" },
+    { id: "important-notice" as LayoutType, name: "Important Notice Layout" },
+    { id: "journey-overview" as LayoutType, name: "Journey Overview Layout" },
+    { id: "detailed-roadmap" as LayoutType, name: "Detailed Roadmap Layout" },
+    { id: "learning-objectives" as LayoutType, name: "Learning Objectives Layout" },
+    { id: "content-priority" as LayoutType, name: "Content Priority Layout" }
   ];
 
   const renderLayout = () => {
@@ -104,6 +120,22 @@ export function SlideTemplate() {
         return <ComparisonTableLayout {...props} />;
       case "clinical-focus":
         return <ClinicalFocusLayout {...props} />;
+      case "multiple-choice":
+        return <MultipleChoiceLayout {...props} />;
+      case "multiple-choice-answer":
+        return <MultipleChoiceAnswerLayout {...props} />;
+      case "title-slide":
+        return <TitleSlideLayout {...props} />;
+      case "important-notice":
+        return <ImportantNoticeLayout {...props} />;
+      case "journey-overview":
+        return <JourneyOverviewLayout {...props} />;
+      case "detailed-roadmap":
+        return <DetailedRoadmapLayout {...props} />;
+      case "learning-objectives":
+        return <LearningObjectivesLayout {...props} />;
+      case "content-priority":
+        return <ContentPriorityLayout {...props} />;
       default:
         return <TwoColumnLayout {...props} />;
     }
@@ -158,40 +190,46 @@ export function SlideTemplate() {
       {/* Slide Container */}
       <div className="bg-white shadow-2xl" style={{ aspectRatio: "16/9" }}>
         <div className="h-full flex flex-col">
-          {/* Header Section - Fixed Height */}
-          <div className="border-b-2 border-gray-300 px-12 relative" style={{ height: "140px", flexShrink: 0 }}>
-            <div className="pt-8">
-              <h1 className="text-black text-5xl">{title}</h1>
-              <p className="mt-2 text-gray-600 italic text-2xl">{subtitle}</p>
-            </div>
+          {/* Header Section - Fixed Height - Hidden for Multiple Choice, Title Slide, Important Notice, Journey Overview, and Detailed Roadmap */}
+          {currentLayout !== "multiple-choice" && currentLayout !== "multiple-choice-answer" && currentLayout !== "title-slide" && currentLayout !== "important-notice" && currentLayout !== "journey-overview" && currentLayout !== "detailed-roadmap" && currentLayout !== "learning-objectives" && currentLayout !== "content-priority" && (
+            <div className="border-b-2 border-gray-300 px-12 relative" style={{ height: "140px", flexShrink: 0 }}>
+              <div className="pt-8">
+                <h1 className="text-black text-5xl">{title}</h1>
+                <p className="mt-2 text-gray-600 italic text-2xl">{subtitle}</p>
+              </div>
 
-            {/* Badge */}
-            <div className="absolute top-8 right-12">
-              <div className="bg-red-600 text-white px-6 py-2 rounded-lg text-2xl">
-                {badge}
+              {/* Badge */}
+              <div className="absolute top-8 right-12">
+                <div className="bg-red-600 text-white px-6 py-2 rounded-lg text-2xl">
+                  {badge}
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Content Section - Dynamic Layout - Takes remaining space */}
           <div className="flex-1 overflow-hidden">
             {renderLayout()}
           </div>
 
-          {/* Footer Section - Fixed Height */}
-          <div className="bg-yellow-100 border-l-4 border-yellow-500 px-12" style={{ height: "120px", flexShrink: 0 }}>
-            <div className="py-4">
-              <h3 className="text-orange-600 text-2xl">{footerTitle}</h3>
-              <p className="mt-2 text-gray-800 text-xl">{footerText}</p>
+          {/* Footer Section - Fixed Height - Hidden for Multiple Choice, Title Slide, Important Notice, Journey Overview, and Detailed Roadmap */}
+          {currentLayout !== "multiple-choice" && currentLayout !== "multiple-choice-answer" && currentLayout !== "title-slide" && currentLayout !== "important-notice" && currentLayout !== "journey-overview" && currentLayout !== "detailed-roadmap" && currentLayout !== "learning-objectives" && currentLayout !== "content-priority" && (
+            <div className="bg-yellow-100 border-l-4 border-yellow-500 px-12" style={{ height: "120px", flexShrink: 0 }}>
+              <div className="py-4">
+                <h3 className="text-orange-600 text-2xl">{footerTitle}</h3>
+                <p className="mt-2 text-gray-800 text-xl">{footerText}</p>
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Copyright - Fixed Height */}
-          <div className="bg-gray-100 px-12 border-t border-gray-200" style={{ height: "28px", flexShrink: 0 }}>
-            <div className="py-1">
-              <p className="text-gray-500 text-center text-sm leading-tight">{copyright}</p>
+          {/* Copyright - Fixed Height - Hidden for Title Slide, Important Notice, Journey Overview, and Detailed Roadmap */}
+          {currentLayout !== "title-slide" && currentLayout !== "important-notice" && currentLayout !== "journey-overview" && currentLayout !== "detailed-roadmap" && currentLayout !== "learning-objectives" && currentLayout !== "content-priority" && (
+            <div className="bg-gray-100 px-12 border-t border-gray-200" style={{ height: "28px", flexShrink: 0 }}>
+              <div className="py-1">
+                <p className="text-gray-500 text-center text-sm leading-tight">{copyright}</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
