@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Template - Flow Left</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: ui-sans-serif, system-ui, sans-serif;
+            background-color: #f3f4f6;
+            display: flex; flex-direction: column;
+            align-items: center; min-height: 100vh; padding: 24px;
+        }
+        .slide-container {
+            width: 100%; max-width: 1280px; aspect-ratio: 16 / 9;
+            background: white; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            display: flex; flex-direction: column;
+        }
+        .slide-header {
+            height: 140px; padding: 0 48px; border-bottom: 2px solid #d1d5db;
+            position: relative; display: flex; flex-direction: column; justify-content: center;
+        }
+        .slide-header h1 { color: black; font-size: 3rem; font-weight: 400; margin-bottom: 8px; }
+        .slide-header p { color: #4b5563; font-size: 1.5rem; font-style: italic; }
+        .badge {
+            position: absolute; top: 32px; right: 48px;
+            background-color: #dc2626; color: white;
+            padding: 8px 24px; border-radius: 8px; font-size: 1.5rem; font-weight: 400;
+        }
+        .slide-content {
+            flex: 1; display: flex; gap: 16px; padding: 16px; overflow: hidden;
+        }
+        .flow-side {
+            flex: 1; display: flex; flex-direction: column;
+            justify-content: center; gap: 4px;
+        }
+        .flow-box {
+            padding: 12px 16px; border-radius: 8px; border: 2px solid;
+        }
+        .flow-box h3, .flow-box h4 {
+            font-size: 1.5rem; text-align: center; font-weight: 400;
+        }
+        .flow-box.blue { background-color: #dbeafe; border-color: #60a5fa; color: #1d4ed8; }
+        .flow-box.purple { background-color: #e9d5ff; border-color: #7c3aed; color: #6d28d9; }
+        .flow-box.orange { background-color: #fed7aa; border-color: #f97316; color: #ea580c; }
+        .flow-box.gray { background-color: #f3f4f6; border-color: #9ca3af; color: #374151; }
+        .flow-box.green { background-color: #d1fae5; border-color: #10b981; color: #047857; }
+        .arrow-down {
+            text-align: center; height: 20px;
+        }
+        .arrow-down svg { width: 20px; height: 20px; color: #9ca3af; margin: 0 auto; }
+        .blank-side { flex: 1; background: white; }
+        .slide-footer {
+            height: 120px; background-color: #fef3c7;
+            border-left: 4px solid #eab308; padding: 16px 48px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .slide-footer h3 { color: #ea580c; font-size: 1.5rem; font-weight: 400; margin-bottom: 8px; }
+        .slide-footer p { color: #1f2937; font-size: 1.25rem; line-height: 1.4; }
+        .slide-copyright {
+            height: 28px; background-color: #f3f4f6; border-top: 1px solid #e5e7eb;
+            display: flex; align-items: center; justify-content: center; padding: 0 48px;
+        }
+        .slide-copyright p { color: #6b7280; font-size: 0.875rem; text-align: center; }
+        </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-header">
+            <h1 class="editable">xxxxxxxxxxxxxxxxxxxxxxxxx</h1>
+            <p class="editable">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            <div class="badge">xxxxxx</div>
+        </div>
+
+        <div class="slide-content">
+            <div class="flow-side">
+                <div class="flow-box blue">
+                    <h3 class="editable">xxxxxxxxxxxxxxxxxxxxxxxxxxx</h3>
+                </div>
+                <div class="arrow-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </div>
+                <div class="flow-box purple">
+                    <h4 class="editable">xxxxxxxxxxxxxxxxxxxxxxx</h4>
+                </div>
+                <div class="arrow-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </div>
+                <div class="flow-box orange">
+                    <h4 class="editable">xxxxxxxxxxxxxxxxxxxxxxxx</h4>
+                </div>
+                <div class="arrow-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </div>
+                <div class="flow-box gray">
+                    <h4 class="editable">xxxxxxxxxxxxxxxxxxxxx</h4>
+                </div>
+                <div class="arrow-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </div>
+                <div class="flow-box green">
+                    <h4 class="editable">xxxxxxxxxxxxxxxxxxxxxxxxxxx</h4>
+                </div>
+            </div>
+
+            <div class="blank-side"></div>
+        </div>
+
+        <div class="slide-footer">
+            <h3 class="editable">xxxxxxxxxxxxxxxxxx</h3>
+            <p class="editable">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        </div>
+
+        <div class="slide-copyright">
+            <p>© 2025 PrepJet Academic Licensure Preparation and Education Service LLC All Rights Reserved</p>
+        </div>
+    </div>
+
+    </body>
+</html>
